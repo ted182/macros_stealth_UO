@@ -158,8 +158,9 @@ def checkPickaxe():
 def restockProtocol():
     global char
     if Dead():
-        return True
-    recall( char['rune-bank'] )
+        deathRoutine()
+    else:
+        recall( char['rune-bank'] )
     unloadOres()
     unloadGems()
     restockReags()
@@ -188,8 +189,6 @@ def deathRoutine():
     print('[death routine] -> char morto!!!')
     deathCount += 1
     callHelpRoom()
-    restockProtocol()
-
 
 def main():
     
@@ -201,9 +200,6 @@ def main():
     spots = []
 
     restockProtocol()
-
-    if Dead():
-        deathRoutine()
     
     while True:      
         
@@ -220,7 +216,8 @@ def main():
             spot = spots[0]
             
             if Dead():
-                deathRoutine()                
+                deathRoutine()
+                restockProtocol()                
                 break
             
             if checkWeight():
