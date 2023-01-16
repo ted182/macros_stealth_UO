@@ -53,9 +53,11 @@ def callHelpRoom():
                 aguardar(250)
                 HelpRequest()
                 aguardar(250)
-                clickGumpButton(gumpHelp1,7)
+                #clickGumpButton(gumpHelp1,7)
+                NumGumpButton(0,7)
                 aguardar(250)
-                clickGumpButton(gumpHelp2,8)
+                #clickGumpButton(gumpHelp2,8)
+                NumGumpButton(0,8)
 
             while not checkHelpRoomStartPoint():
                 print('[call-HP] - > aguardando help room...')                
